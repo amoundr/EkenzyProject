@@ -1,0 +1,21 @@
+.login-form {
+	width: 650px; 
+}
+
+.login-row {
+	padding-top: 2%;
+	vertical-align: center;
+}
+
+.login-text{
+	margin-top: 1%;
+	padding-left: 5%;
+}
+
+.login-text p{
+	font-size: 1.3em;
+}
+
+.createCompanyForm div{
+	padding-bottom: 5px;
+}

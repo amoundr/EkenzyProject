@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="layout1" template="/WEB-INF/templates/layout1.jsp">
+    <put-attribute name="title" value="Mon titre de tiles" cascade="true"/>
+    
+    
+  </definition>
+  <definition name="index1" template="/WEB-INF/templates/index.jsp">
+    <put-attribute name="title" value="Bienvenue sur Ekenzy" cascade="true"/>
+    
+    
+  </definition>
+  <definition name="messages1" template="/WEB-INF/templates/messages.jsp">
+    <put-attribute name="title" value="Mes messages" cascade="true"/>        
+  </definition>
+  <definition name="infos1" template="/WEB-INF/templates/infos.jsp">
+    <put-attribute name="title" value="Mes informations" cascade="true"/>   
+  </definition>
+  <definition name="abonnement1" template="/WEB-INF/templates/abonnement.jsp">
+    <put-attribute name="title" value="Abonnement" cascade="true"/>
+    
+    
+  </definition>
+  <definition name="abonnement" extends="abonnement1">
+		<put-attribute name="header" value="/WEB-INF/templates/layout1/header.jsp" />
+	    <put-attribute name="body" value="/WEB-INF/views/abonnement.jsp" />		
+	    <put-attribute name="menu" value="/WEB-INF/templates/layout1/menu.jsp" />
+	    <put-attribute name="footer" value="/WEB-INF/templates/layout1/footer.jsp" />
+  </definition>
+  
+  <definition name="index" extends="index1">
+		<put-attribute name="header" value="/WEB-INF/templates/layout1/header.jsp" />
+	    <put-attribute name="body" value="/WEB-INF/views/index.jsp" />		
+	    <put-attribute name="footer" value="/WEB-INF/templates/layout1/footer.jsp" />
+  </definition>
+  <definition name="infos" extends="infos1">
+		<put-attribute name="header" value="/WEB-INF/templates/layout1/header.jsp" />
+	    <put-attribute name="body" value="/WEB-INF/views/infos.jsp" />		
+	    <put-attribute name="menu" value="/WEB-INF/templates/layout1/menu.jsp" />
+	    <put-attribute name="footer" value="/WEB-INF/templates/layout1/footer.jsp" />
+  </definition>
+  <definition name="messages" extends="messages1">
+		<put-attribute name="header" value="/WEB-INF/templates/layout1/header.jsp" />
+	    <put-attribute name="body" value="/WEB-INF/views/messages.jsp" />		
+	    <put-attribute name="menu" value="/WEB-INF/templates/layout1/menu.jsp" />
+	    <put-attribute name="footer" value="/WEB-INF/templates/layout1/footer.jsp" />
+  </definition>
+  <definition name="eportefeuille" extends="infos1">
+		<put-attribute name="header" value="/WEB-INF/templates/layout1/header.jsp" />
+	    <put-attribute name="body" value="/WEB-INF/views/eportefeuille.jsp" />		
+	    <put-attribute name="menu" value="/WEB-INF/templates/layout1/menu.jsp" />
+	    <put-attribute name="footer" value="/WEB-INF/templates/layout1/footer.jsp" />
+  </definition>
+  
+  <definition name="profile" template="/WEB-INF/templates/profile.jsp">
+    <put-attribute name="title" value="profile" cascade="true"/>
+    <put-attribute name="header" value="/WEB-INF/templates/profile/header.jsp" />
+	<put-attribute name="menu" value="/WEB-INF/templates/profile/menu.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/templates/profile/footer.jsp" />        
+  </definition>
+  
+  <definition name="pabonnement" extends="profile">
+		<put-attribute name="body" value="/WEB-INF/views/pabonnement.jsp" />
+  </definition>
+  
+  
+</tiles-definitions>

@@ -1,0 +1,115 @@
+.mart {
+	margin-top : 50px ;
+}
+
+.coverimg {
+  height : 100px ;
+}
+
+.margr > li {
+   margin-right : 2px ;
+   background: #e7e7e7;
+}
+.margr > li > a {
+  height : 41px;
+  line-height: 14px !important ;
+  
+ }
+.fixa > a {
+  text-decoration: none;
+  height: 41px;
+  display: block;
+  line-height: 25px;
+  padding: 10px 14px;
+  color : #181C1F ;
+} 
+
+.martop {
+	margin-top : 9px ;
+}
+
+.hemessage {
+  min-height: 41px !important;
+}
+.backgris {
+  background-color: white;
+  padding-left : 0px !important;
+  margin-top : 0px !important ;
+}
+
+.annuler-margin-bottom {
+   margin-bottom : 0px !important ;
+}
+.annulerpadding {
+   padding : 0px  !important;
+}
+
+.margdroite {
+  margin-right : 20px ;
+}
+
+.margtop {
+  margin: 5px;
+}
+
+.jumboimg {
+background-image: url("../images/fsts.jpg");
+}
+
+.sectionclass {
+
+   padding : 10px ;
+}
+
+.gauche {
+	border : 1px solid ;
+	border-color : #E7E7E7 ;
+	padding : 0px !important;
+	
+}
+
+.msghead {
+  font-weight : bold ;
+  font-size : 14px ;
+  padding : 5px ;
+}
+.repondre {
+  
+  font-weight : bold ;
+  font-size : 14px ;
+  margin : 5px 5px 5px 0px;
+}
+
+.setborder-top-bottom {
+	border-bottom : 1px solid ;
+	border-bottom-color : #E7E7E7 ; 
+	border-top : 1px solid ;
+	border-top-color : #E7E7E7 ;
+	padding : 5px ;
+	
+}
+
+.setmargin-bottom  {
+ 
+ margin-bottom : 8px ;
+}
+
+.message-active {
+ background-color : #F4F4F4;
+}
+
+.raate {
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  bottom: 48px;
+  right: -425px;
+}
+
+.raatee {
+  position: relative;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  bottom: -101px;
+  right: -212px;
+}

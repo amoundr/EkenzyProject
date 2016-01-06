@@ -1,0 +1,71 @@
+.navbar-inverse {
+  background-color: #4CC1DD;
+  border-color: #4CC1DD;
+}
+
+.inscription {
+	
+	margin-top : 50px ;
+	padding: 20px;
+}
+
+.signin-marg {
+	
+	margin: 7px -33px !important; 
+}
+
+/* image entreprise */
+
+.enimg {
+  min-height: 210px;
+  min-width: 583px;
+  max-height: 210px;
+  max-width: 583px;
+  padding: 0px !important;
+  margin: auto;
+  
+}
+.enimgpop {
+  min-height: 210px;
+  min-width: 583px;
+  max-height: 210px;
+  max-width: 583px;
+  padding: 0px !important;
+  margin: auto;
+    position: relative;
+  left: -7px;
+  
+}
+.enimgp {
+  position: absolute;
+  top: 14px;
+  left: 17px;
+  min-height: 100px;
+  min-width: 105px;
+  max-height: 100px;
+  max-width: 105px;
+  
+  padding: 4px !important;
+  background-color: #fff;
+  
+}
+
+.enimgpch {
+  position: relative;
+  left: 78px;
+  min-height: 100px;
+  min-width: 105px;
+  max-height: 100px;
+  max-width: 105px;
+  
+  padding: 4px !important;
+  background-color: #fff;
+  
+}
+
+.antijumbo {
+	
+	  padding: 0px !important;
+	  height: 208px;
+}
+
