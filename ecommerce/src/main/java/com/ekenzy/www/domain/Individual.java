@@ -14,12 +14,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 //@XmlRootElement 
-//@XmlAccessorType(value=FIELD)
 @SuppressWarnings("serial")
+//@XmlAccessorType(value=FIELD)
 @Entity
 @DiscriminatorValue("I")
+@PrimaryKeyJoinColumn(name = "userID")
 public class Individual extends User implements Serializable{
    @GeneratedValue
    private String profileID;
@@ -38,7 +40,7 @@ public class Individual extends User implements Serializable{
    /** @pdRoleInfo migr=no name=Comment assc=association42 coll=List impl=ArrayList mult=0..* side=A */
    @OneToMany(mappedBy="individual",fetch=FetchType.LAZY)
    private List<Comment> comment;
-   
+
 /**
  * @return the profileID
  */

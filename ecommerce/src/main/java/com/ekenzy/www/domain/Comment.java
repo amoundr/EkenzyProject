@@ -40,7 +40,7 @@ public class Comment implements Serializable{
 	 * @pdRoleInfo migr=yes name=Individual assc=association42 mult=1..1
 	 */
 	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name = "individualID", referencedColumnName = "individualID")
+	@JoinColumn(name = "individualID", referencedColumnName = "userID")
 	private Individual individual;
 	private Boolean published;
 	private String author;

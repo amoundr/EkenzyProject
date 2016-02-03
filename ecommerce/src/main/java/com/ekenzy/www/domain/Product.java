@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
+import javax.persistence.OrderBy;
 import javax.persistence.GeneratedValue;
 
 import com.ekenzy.www.domain.ObjectLocalization;
@@ -30,21 +30,24 @@ public class Product implements Serializable {
    private Integer viewsNumber;
    /** @pdRoleInfo migr=yes name=Company assc=association14 mult=1..1 */
    @OneToOne(fetch = FetchType.LAZY)
-   @JoinColumn(name = "companyID", referencedColumnName = "companyID", nullable = false)
+   @JoinColumn(name = "companyID", referencedColumnName = "userID", nullable = false)
    private Company company;
    /** @pdRoleInfo migr=no name=Plan assc=association16 coll=Set impl=HashSet mult=0..* side=A */
    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product",cascade=CascadeType.REMOVE)
    private Set<Plan> plan;
    /** @pdRoleInfo migr=no name=Comment assc=association41 mult=0..* side=A */
-   private Collection<Comment> comment;
+   @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+   @OrderBy("commentDate DESC")
+   private Collection<Comment> comment = new HashSet<Comment>();
    /** @pdRoleInfo migr=no name=Media assc=association48 coll=Collection impl=HashSet mult=0..* */
+   @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
    private Collection<Media> media;
    private Integer kRating;
    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product",cascade=CascadeType.REMOVE)
-   private Set<Rating> ratings;
+   private Set<Rating> ratings = new HashSet<Rating>();
    /** @pdRoleInfo migr=no name=ObjectLocalization assc=association13 mult=0..* */
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-   private Collection<ObjectLocalization> objectLocalization;
+   private Collection<ObjectLocalization> objectLocalization = new HashSet<ObjectLocalization>();
    
    
    /** @pdGenerated default getter */
@@ -52,6 +55,12 @@ public class Product implements Serializable {
       return objectLocalization;
    }
    
+   /** @pdGenerated default setter
+    * @param newObjectLocalization */
+  public void setObjectLocalization(Collection<ObjectLocalization> newObjectLocalization) {
+     this.objectLocalization = newObjectLocalization;
+  }
+  
    /**
  * @return the productID
  */
@@ -164,11 +173,6 @@ public void setRatings(Set<Rating> ratings) {
 	this.ratings = ratings;
 }
 
-/** @pdGenerated default setter
-     * @param newObjectLocalization */
-   public void setObjectLocalization(Collection<ObjectLocalization> newObjectLocalization) {
-      this.objectLocalization = newObjectLocalization;
-   }
    /** @pdGenerated default parent getter */
    public Company getCompany() {
       return company;

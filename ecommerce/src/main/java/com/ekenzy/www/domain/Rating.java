@@ -21,11 +21,11 @@ public class Rating implements Serializable{
    private Product product;
    /** @pdRoleInfo migr=yes name=Individual assc=association8 mult=1..1 */
    @ManyToOne(fetch= FetchType.LAZY)
-   @JoinColumn(name = "individualID", referencedColumnName = "individualID")
+   @JoinColumn(name = "individualID", referencedColumnName = "userID")
    private Individual individual;
    /** @pdRoleInfo migr=no name=Company assc=association45 mult=1..1 */
    @ManyToOne(fetch= FetchType.LAZY)
-   @JoinColumn(name = "companyID", referencedColumnName = "companyID")
+   @JoinColumn(name = "companyID", referencedColumnName = "userID")
    private Company company;
    private Double points;
    

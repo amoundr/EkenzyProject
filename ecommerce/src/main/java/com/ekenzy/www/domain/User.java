@@ -1,6 +1,7 @@
 package com.ekenzy.www.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -22,17 +23,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 //@XmlRootElement
 //@XmlAccessorType(value=FIELD)
 @SuppressWarnings("serial")
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="U_TYPE", discriminatorType = DiscriminatorType.CHAR)
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="USER_CLASS", discriminatorType = DiscriminatorType.CHAR)
 public class User implements Serializable{
    @Id 
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.AUTO)
    private Integer userID;
    private String userName;
    private String firstName;
@@ -57,7 +59,8 @@ public class User implements Serializable{
    private UserType userType;
    
    /** @pdRoleInfo migr=no name=Media assc=association39 mult=0..1 */
-   private Media logoAvatarMedia;
+   @OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+   private Collection<Media> logoAvatarMedia = new HashSet<Media>();
    
    /** @pdRoleInfo migr=no name=City assc=association30 mult=0..1 */
    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
@@ -349,13 +352,13 @@ public void setRoles(Set<Role> roles) {
       this.userType = newUserType;
    }
    /** @pdGenerated default parent getter */
-   public Media getLogoAvatarMedia() {
+   public Collection<Media> getLogoAvatarMedia() {
       return logoAvatarMedia;
    }
    
    /** @pdGenerated default parent setter
      * @param newMedia */
-   public void setLogoAvatarMedia(Media newMedia) {
+   public void setLogoAvatarMedia(Collection<Media> newMedia) {
       this.logoAvatarMedia = newMedia;
    }   
    

@@ -47,7 +47,7 @@ public class ObjectLocalization implements Serializable {
    private Plan plan;
    /** @pdRoleInfo migr=no name=Company assc=association18 mult=0..1 side=A */
    @ManyToOne(fetch = FetchType.LAZY)
-   @JoinColumn(name = "companyID", referencedColumnName = "companyID", nullable = true)
+   @JoinColumn(name = "companyID", referencedColumnName = "userID", nullable = true)
    private Company company;
    
    

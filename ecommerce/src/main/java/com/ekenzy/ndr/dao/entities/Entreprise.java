@@ -72,8 +72,8 @@ public class Entreprise implements Serializable {
 	/******** Manager de  l'entreprise **********/
 	
 	
-	@ManyToOne
-	@JoinColumn(name="idRole")
+	//@ManyToOne
+	//@JoinColumn(name="idRole")
 	private Role role ;
 	
 	// ville

@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -14,9 +15,12 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
+import javax.persistence.PrimaryKeyJoinColumn;
 @SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue("C")
+@PrimaryKeyJoinColumn(name = "userID")
 public class Company extends User implements Serializable { 
    //@GeneratedValue
    private String title;
@@ -32,7 +36,8 @@ public class Company extends User implements Serializable {
    private Collection<ObjectLocalization> objectLocalization = new HashSet<ObjectLocalization>();   
    
    /** @pdRoleInfo migr=no name=Comment assc=association46 coll=Collection impl=HashSet mult=0..* */
-   @OneToMany(fetch=FetchType.LAZY)
+   @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+   @OrderBy("commentDate DESC")
    private Collection<Comment> comment;
    /** @pdRoleInfo migr=no name=Product assc=association14 coll=Set impl=HashSet mult=0..* side=A */
    @OneToMany(mappedBy="company",fetch=FetchType.LAZY)
@@ -43,7 +48,7 @@ public class Company extends User implements Serializable {
    private LegalStatus legalStatus;
    /** @pdRoleInfo migr=no name=ActivitySecor assc=association36 mult=1..1 side=A */
    @OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "activitySecorID", referencedColumnName = "activitySecorID", nullable = false)
+	@JoinColumn(name = "activitySectorID", referencedColumnName = "activitySectorID", nullable = false)
    private ActivitySector activitySector;
    @OneToMany(mappedBy="company",fetch=FetchType.LAZY)
    private Set<Rating> rating;

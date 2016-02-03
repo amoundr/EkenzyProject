@@ -32,7 +32,7 @@ public class Purchase implements Serializable{
 	private Set<PurchaseItem> purchaseItem = new HashSet<PurchaseItem>();
    /** @pdRoleInfo migr=yes name=Individual assc=association11 mult=1..1 */
    @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "individualID", referencedColumnName = "individualID", nullable = false)
+	@JoinColumn(name = "individualID", referencedColumnName = "userID", nullable = false)
 	private Individual customer;
    
    
