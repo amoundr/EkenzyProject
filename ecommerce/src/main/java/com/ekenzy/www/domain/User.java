@@ -30,7 +30,7 @@ import javax.persistence.Transient;
 //@XmlAccessorType(value=FIELD)
 @SuppressWarnings("serial")
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="USER_CLASS", discriminatorType = DiscriminatorType.CHAR)
 public class User implements Serializable{
    @Id 
@@ -74,7 +74,10 @@ public class User implements Serializable{
    @ManyToMany(fetch = FetchType.EAGER)
    @JoinTable(name = "role", joinColumns = { @JoinColumn(name = "userID", referencedColumnName = "userID") }, inverseJoinColumns = { @JoinColumn(name = "roleID", referencedColumnName = "roleID") })
    private Set<Role> roles;
-   
+   /** @pdRoleInfo migr=no name=Purchase assc=association11 mult=0..* side=A */
+   @OneToMany(mappedBy="customer",fetch=FetchType.LAZY)
+   private Collection<Purchase> purchase = new HashSet<Purchase>();
+
    /**
  * @return the userID
  */

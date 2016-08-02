@@ -34,9 +34,6 @@ public class Individual extends User implements Serializable{
    /** @pdRoleInfo migr=no name=Rating assc=association8 mult=0..* side=A */
    @OneToMany(mappedBy="individual",fetch=FetchType.LAZY)
    private Set<Rating> rating = new HashSet<Rating>();
-   /** @pdRoleInfo migr=no name=Purchase assc=association11 mult=0..* side=A */
-   @OneToMany(mappedBy="customer",fetch=FetchType.LAZY)
-   private Collection<Purchase> purchase = new HashSet<Purchase>();
    /** @pdRoleInfo migr=no name=Comment assc=association42 coll=List impl=ArrayList mult=0..* side=A */
    @OneToMany(mappedBy="individual",fetch=FetchType.LAZY)
    private List<Comment> comment;

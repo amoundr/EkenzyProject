@@ -19,8 +19,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 @SuppressWarnings("serial")
 @Entity
-@DiscriminatorValue("C")
-@PrimaryKeyJoinColumn(name = "userID")
+@SecondaryTable(name="COMPANY")
 public class Company extends User implements Serializable { 
    //@GeneratedValue
    private String title;

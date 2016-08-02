@@ -32,8 +32,8 @@ public class Purchase implements Serializable{
 	private Set<PurchaseItem> purchaseItem = new HashSet<PurchaseItem>();
    /** @pdRoleInfo migr=yes name=Individual assc=association11 mult=1..1 */
    @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "individualID", referencedColumnName = "userID", nullable = false)
-	private Individual customer;
+	@JoinColumn(name = "userID", referencedColumnName = "userID", nullable = false)
+	private User customer;
    
    
    /**
@@ -135,14 +135,14 @@ public void setInvoiceNumber(String invoiceNumber) {
 }
 
 /** @pdGenerated default parent getter */
-   public Individual getCustomer() {
+   public User getCustomer() {
       return customer;
    }
    
    /** @pdGenerated default parent setter
-     * @param newIndividual */
-   public void setCustomer(Individual newIndividual) {
-      this.customer = newIndividual;
+     * @param newUser */
+   public void setCustomer(User newUser) {
+      this.customer = newUser;
    }
    
    /** @pdGenerated default getter */
